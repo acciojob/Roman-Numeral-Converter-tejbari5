@@ -1,35 +1,20 @@
 function convertToRoman(num) {
-  const obj = {
-    0: ['M', 1000],
-    1: ['CM', 900],
-    2: ['D', 500],
-    3: ['CD', 400],
-    4: ['C', 100],
-    5: ['XC', 90],
-    6: ['L', 50],
-    7: ['XL', 40],
-    8: ['X', 10],
-    9: ['IX', 9],
-    10: ['V', 5],
-    11: ['IV', 4],
-    12: ['I', 1]
-  };
-
-  let roman = '';
-
-  for (let i = 0; i < Object.keys(obj).length; i++) {
-    const symbol = obj[i][0];
-    const value = obj[i][1];
-
-    while (num >= value) {
-      roman += symbol;
-      num -= value;
+var lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},roman = '',i;
+  for ( i in lookup ) {
+    while ( num >= lookup[i] ) {
+      roman += i;
+      num -= lookup[i];
     }
   }
-
   return roman;
-}
 
-// Test the function with an example
-console.log(convertToRoman(14)); // Output: "XIV"
-console.log(convertToRoman(798)); // Output: "DCCXCVIII"
+}
+// You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
+
+//alert(convertToRoman(36));
+
+
+
+
+// do not edit below this line
+module.exports = convertToRoman
